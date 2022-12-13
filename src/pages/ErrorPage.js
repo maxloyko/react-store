@@ -1,8 +1,15 @@
 import React from 'react'
 import styled from 'styled-components'
-import { Link } from 'react-router-dom'
+import {Link} from 'react-router-dom'
+
 const ErrorPage = () => {
-  return <h4>error page</h4>
+    return <Wrapper className='page-100'>
+        <section>
+            <h1>404</h1>
+            <h3>Page can't be found</h3>
+            <Link to='/' className='btn'>back home</Link>
+        </section>
+    </Wrapper>
 }
 
 const Wrapper = styled.main`
@@ -11,9 +18,11 @@ const Wrapper = styled.main`
   justify-content: center;
   align-items: center;
   text-align: center;
+
   h1 {
     font-size: 10rem;
   }
+
   h3 {
     text-transform: none;
     margin-bottom: 2rem;
