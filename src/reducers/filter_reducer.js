@@ -1,17 +1,20 @@
 import {
-  LOAD_PRODUCTS,
-  SET_LISTVIEW,
-  SET_GRIDVIEW,
-  UPDATE_SORT,
-  SORT_PRODUCTS,
-  UPDATE_FILTERS,
-  FILTER_PRODUCTS,
-  CLEAR_FILTERS,
+    LOAD_PRODUCTS,
+    SET_LISTVIEW,
+    SET_GRIDVIEW,
+    UPDATE_SORT,
+    SORT_PRODUCTS,
+    UPDATE_FILTERS,
+    FILTER_PRODUCTS,
+    CLEAR_FILTERS, SIDEBAR_OPEN,
 } from '../actions'
 
 const filter_reducer = (state, action) => {
-  return state
-  throw new Error(`No Matching "${action.type}" - action type`)
+    switch (action.type) {
+        case LOAD_PRODUCTS:
+            return {...state, all_products: [...action.payload], filtered_products: [...action.payload]}
+        default:
+            throw new Error(`No Matching "${action.type}" - action type`)
+    }
 }
-
 export default filter_reducer
