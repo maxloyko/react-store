@@ -13,7 +13,7 @@ const Hero = () => {
             </h1>
             <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Ad assumenda at dignissimos earum inventore
                 quam temporibus vero voluptatem? Praesentium, quia.</p>
-            <Link to='/product' className='hero-btn btn'>show now</Link>
+            <Link to='/products' className='hero-btn btn'>Shop now</Link>
         </article>
         <article className='img-container'>
             <img src={heroBcg} alt="table" className='main-img'/>
