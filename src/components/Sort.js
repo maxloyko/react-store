@@ -1,9 +1,27 @@
 import React from 'react'
-import { useFilterContext } from '../context/filter_context'
-import { BsFillGridFill, BsList } from 'react-icons/bs'
+import {useFilterContext} from '../context/filter_context'
+import {BsFillGridFill, BsList} from 'react-icons/bs'
 import styled from 'styled-components'
+
 const Sort = () => {
-  return <h4>sort </h4>
+    const {filtered_products:products,grid_view, setGridView, setListView, sort, updateSort} = useFilterContext()
+    return <Wrapper>
+        <div className="btn-container">
+            <button type='button' className={`${grid_view ? 'active':''}`} onClick={setGridView}><BsFillGridFill/></button>
+            <button type='button' className={`${!grid_view ? 'active':''}`} onClick={setListView}><BsList/></button>
+        </div>
+        <p>{products.length} products found</p>
+        <hr/>
+        <form>
+            <label htmlFor="sort">sort by</label>
+            <select name="sort" id="sort" className={'sort-input'} onChange={updateSort} value={sort}>
+                <option value="price-lowes">price (lowest)</option>
+                <option value="price-highest">price (highest)</option>
+                <option value="name-a">name (a-z)</option>
+                <option value="name-z">name (z-a)</option>
+            </select>
+        </form>
+    </Wrapper>
 }
 
 const Wrapper = styled.section`
@@ -19,6 +37,7 @@ const Wrapper = styled.section`
     .btn-container {
       width: 50px;
     }
+
     label {
       display: inline-block;
       margin-right: 0.5rem;
@@ -27,6 +46,7 @@ const Wrapper = styled.section`
   @media (min-width: 768px) {
     column-gap: 2rem;
   }
+
   p {
     text-transform: capitalize;
     margin-bottom: 0;
@@ -36,6 +56,7 @@ const Wrapper = styled.section`
     display: grid;
     grid-template-columns: 1fr 1fr;
     column-gap: 0.5rem;
+
     button {
       background: transparent;
       border: 1px solid var(--clr-black);
@@ -47,10 +68,12 @@ const Wrapper = styled.section`
       align-items: center;
       justify-content: center;
       cursor: pointer;
+
       svg {
         font-size: 1rem;
       }
     }
+
     .active {
       background: var(--clr-black);
       color: var(--clr-white);
@@ -63,6 +86,7 @@ const Wrapper = styled.section`
     text-transform: capitalize;
     padding: 0.25rem 0.5rem;
   }
+
   label {
     font-size: 1rem;
     text-transform: capitalize;
