@@ -53,8 +53,35 @@ const filter_reducer = (state, action) => {
             const {name, value} = action.payload;
             return {...state, filters: {...state.filters, [name]: value}}
         case FILTER_PRODUCTS:
-            console.log('filters')
-            return {...state}
+            const {all_products} = state;
+            let temp_products = [...all_products];
+            const {text, company, category, price, color, shipping, max_price} = state.filters
+
+            if (text) {
+                temp_products = temp_products.filter((p) => p.name.toLowerCase().startsWith(text))
+            }
+            if (company !== 'all') {
+                temp_products = temp_products.filter((p) => p.company === company)
+            }
+
+            if (category !== 'all') {
+                temp_products = temp_products.filter((p) => p.category === category)
+            }
+
+            if (color !== 'all') {
+                temp_products = temp_products.filter((p) => {
+                    return p.colors.find((c) => c === color)
+                })
+            }
+            if (price !== max_price) {
+                temp_products = temp_products.filter((p) => p.price <= price)
+            }
+
+            if (shipping) {
+                temp_products = temp_products.filter((p) => p.shipping === true)
+            }
+
+            return {...state, filtered_products: temp_products}
         case CLEAR_FILTERS:
             console.log('filters')
             return {
