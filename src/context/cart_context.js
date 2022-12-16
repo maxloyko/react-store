@@ -36,22 +36,29 @@ export const CartProvider = ({children}) => {
     }
     //remove item
     const removeItem = (id) => {
-        dispatch({type:REMOVE_CART_ITEM, payload: id})
+        dispatch({type: REMOVE_CART_ITEM, payload: id})
     }
     //toggleAmount
     const toggleAmount = (id, value) => {
-
+        dispatch({type: TOGGLE_CART_ITEM_AMOUNT, payload: {id, value}})
     }
     //clear cart
     const clearCart = () => {
-        dispatch({type:CLEAR_CART})
+        dispatch({type: CLEAR_CART})
     }
 
     useEffect(() => {
         localStorage.setItem('cart', JSON.stringify(state.cart))
-    },[state.cart])
+    }, [state.cart])
     return (
-        <CartContext.Provider value={{...state, addToCart, removeItem, toggleAmount, clearCart}}>{children}</CartContext.Provider>
+        <CartContext.Provider
+            value={{
+                ...state,
+                addToCart,
+                removeItem,
+                toggleAmount,
+                clearCart
+        }}>{children}</CartContext.Provider>
     )
 }
 // make sure use
