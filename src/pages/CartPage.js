@@ -15,7 +15,7 @@ const CartPage = () => {
         </Wrapper>
     }
     return <main>
-        <PageHero title={'cart'}></PageHero>
+        <PageHero title="Cart"></PageHero>
         <Wrapper className={'page'}>
             <CartContent/>
         </Wrapper>
