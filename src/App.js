@@ -1,10 +1,10 @@
 import React from 'react'
 import {BrowserRouter as Router, Routes, Route} from 'react-router-dom'
 import {Navbar, Sidebar, Footer} from './components'
-import {Home, Products, Error, Checkout, Cart, SingeProduct, Private, About} from './pages'
+import {Home, Products, Error, Checkout, Cart, SingeProduct, Private, About, AuthWrapper} from './pages'
 
 function App() {
-    return (
+    return (<AuthWrapper>
             <Router>
                 <Navbar/>
                 <Sidebar/>
@@ -19,7 +19,7 @@ function App() {
                 </Routes>
                 <Footer/>
             </Router>
-    )
+        </AuthWrapper>)
 }
 
 export default App
