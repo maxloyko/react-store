@@ -6,7 +6,7 @@ import {
     SORT_PRODUCTS,
     UPDATE_FILTERS,
     FILTER_PRODUCTS,
-    CLEAR_FILTERS, SIDEBAR_OPEN,
+    CLEAR_FILTERS,
 } from '../actions'
 
 const filter_reducer = (state, action) => {

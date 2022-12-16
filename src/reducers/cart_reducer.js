@@ -5,7 +5,6 @@ import {
     REMOVE_CART_ITEM,
     TOGGLE_CART_ITEM_AMOUNT,
 } from '../actions'
-import cartItem from "../components/CartItem";
 
 const cart_reducer = (state, action) => {
 
@@ -70,10 +69,8 @@ const cart_reducer = (state, action) => {
                     }
                     return {...item, amount: newAmount}
                 }
-            } else {
-                return item;
             }
-
+            return  item;
         })
 
         return {...state, cart: tempCart}
