@@ -1,6 +1,6 @@
 {
   "name": "store",
-  "version": "1.0",
+  "version": "1.0.0",
   "private": true,
   "dependencies": {
     "@auth0/auth0-react": "^1.12.0",
